@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TourGuide - Recomendação de Passeios</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>🌍 TourGuide</h1>
+            <p class="hero-subtitle">Descubra os melhores passeios para sua próxima aventura</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="filters-section">
+            <h2 class="section-title">Encontre seu passeio ideal</h2>
+            <p class="section-desc">Preencha os filtros abaixo e descubra recomendações personalizadas</p>
+
+            <form id="filterForm" class="filters-grid">
+                <div class="filter-group">
+                    <label for="pais">
+                        <span class="filter-icon">🌎</span> País
+                    </label>
+                    <select id="pais" name="pais">
+                        <option value="">Todos os países</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="cidade">
+                        <span class="filter-icon">🏙️</span> Cidade
+                    </label>
+                    <select id="cidade" name="cidade">
+                        <option value="">Todas as cidades</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="tipo">
+                        <span class="filter-icon">🎯</span> Tipo de Passeio
+                    </label>
+                    <select id="tipo" name="tipo">
+                        <option value="">Todos os tipos</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="preco_max">
+                        <span class="filter-icon">💰</span> Preço Máximo (R$)
+                    </label>
+                    <input type="number" id="preco_max" name="preco_max"
+                           placeholder="Ex: 100" min="0" step="10">
+                </div>
+
+                <div class="filter-group">
+                    <label for="duracao_max">
+                        <span class="filter-icon">⏱️</span> Duração Máxima (horas)
+                    </label>
+                    <input type="number" id="duracao_max" name="duracao_max"
+                           placeholder="Ex: 4" min="1" max="24">
+                </div>
+
+                <div class="filter-group">
+                    <label for="pessoas">
+                        <span class="filter-icon">👥</span> Quantidade de Pessoas
+                    </label>
+                    <input type="number" id="pessoas" name="pessoas"
+                           placeholder="Ex: 2" min="1" max="100">
+                </div>
+
+                <div class="filter-group filter-checkbox">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="gratuito" name="gratuito">
+                        <span class="checkmark"></span>
+                        <span class="filter-icon">🆓</span> Apenas passeios gratuitos
+                    </label>
+                </div>
+
+                <div class="filter-group filter-actions">
+                    <button type="submit" class="btn btn-primary" id="btnBuscar">
+                        🔍 Buscar Passeios
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="btnLimpar">
+                        🗑️ Limpar Filtros
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="results-section" id="resultsSection">
+            <div class="results-header">
+                <h2 class="section-title">Passeios Recomendados</h2>
+                <span class="results-count" id="resultsCount"></span>
+            </div>
+
+            <div class="results-grid" id="resultsGrid">
+                <!-- Cards de passeios serão inseridos aqui -->
+            </div>
+
+            <div class="no-results" id="noResults" style="display: none;">
+                <span class="no-results-icon">😕</span>
+                <h3>Nenhum passeio encontrado</h3>
+                <p>Tente ajustar os filtros para encontrar mais opções.</p>
+            </div>
+
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Buscando os melhores passeios...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>🌍 TourGuide &copy; 2026 - Descubra o mundo, um passeio de cada vez</p>
+    </footer>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
